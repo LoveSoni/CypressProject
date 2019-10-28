@@ -1,11 +1,13 @@
+import { AdminSteps } from "../pageObjects/AdminSteps";
+
 function randomNumber(min, max) {  
     return Math.floor(Math.random() * (max - min) + min); 
 } 
 
 describe('Create a new dealer',()=>{
+    const adminSteps  = new AdminSteps()
     beforeEach(()=>{
-        cy.task('log', 'Open Admin panel stage')
-        cy.visit('https://admin-staging.24c.in')
+        adminSteps.visitSite()
         cy.task('log', 'Enter username')
         cy.get('#userName').type('test@cars24.com')
         cy.task('log', 'Enter password')
