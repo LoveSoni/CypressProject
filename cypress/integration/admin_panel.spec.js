@@ -18,7 +18,9 @@ describe('Create a new dealer',()=>{
         cy.contains('List Dealers').click()
         cy.get(':nth-child(1) > :nth-child(1) > .btn').click()
         cy.get('#info_1 > .panel-title > a').click()
-        cy.get(':nth-child(1) > .onboarding_form > :nth-child(2) > :nth-child(2) > .row > .col-sm-6 > .form-control').type('new'+randomNumber(1,1000)+'@cars24.com')
+        var dealerName = 'new'+randomNumber(1,1000)+'@cars24.com'
+        cy.task('log','Dealer name is :'+dealerName)
+        cy.get(':nth-child(1) > .onboarding_form > :nth-child(2) > :nth-child(2) > .row > .col-sm-6 > .form-control').type(dealerName)
         cy.get('.dark_info > .onboarding_form > :nth-child(1) > :nth-child(1) > .row > .col-sm-6 > .form-control').type('cyp')
         cy.get('#permanentAddress').type('Gurgaon')
         cy.get('#fkRegionId').select('Pune')
