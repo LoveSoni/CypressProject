@@ -4,17 +4,17 @@ function randomNumber(min, max) {
 
 describe('Create a new dealer',()=>{
     beforeEach(()=>{
+        cy.task('log', 'Open Admin panel stage')
         cy.visit('https://admin-staging.24c.in')
-        cy.log('Open admin staging')        
+        cy.task('log', 'Enter username')
         cy.get('#userName').type('test@cars24.com')
-        cy.log('Enter username')
+        cy.task('log', 'Enter password')
         cy.get('#password').type('123456{enter}')
-        cy.log('Enter password')
     })
     it('User clicks on dealer database',() =>{
-        cy.log('Click on dealer database')
+        cy.task('log','Click on dealer database')
         cy.get(':nth-child(7) > :nth-child(1) > span').click()  
-        cy.log('Click on list of dealers')
+        cy.task('log','Click on list of dealers')
         cy.contains('List Dealers').click()
         cy.get(':nth-child(1) > :nth-child(1) > .btn').click()
         cy.get('#info_1 > .panel-title > a').click()
